@@ -37,3 +37,6 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+infra/.terraform
+infra/.terraform.lock.hcl
