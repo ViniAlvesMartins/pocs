@@ -1,0 +1,50 @@
+service: functions-clean-architecture
+
+plugins:
+  - 'serverless-bundle'
+  - serverless-offline
+  - serverless-plugin-resource-tagging
+  - serverless-plugin-aws-alerts
+  - serverless-localstack	
+  - serverless-deployment-bucket
+  - serverless-plugin-canary-deployments
+
+package:
+  individually: true
+
+custom:
+  stage: ${opt:stage, 'dev'}
+  serverless-offline:
+    httpPort: 3333
+    lambdaPort: 2333
+    noPrependStageInUrl: true
+  bundle:
+    linting: false
+    tsConfig: 'tsconfig.app.json'
+
+params:
+  prod:
+    production: true
+  default:
+    production: false
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  stage: ${self:custom.stage}
+  endpointType: regional
+  timeout: 20
+  environment:
+    APP_ENV: ${self:custom.stage}
+    IS_PRODUCTION: ${param:production}
+    NODE_OPTIONS: --enable-source-maps  	
+  stackTags:
+      Tag1: "Tag1 value"
+      Tag2: "Tag2 value"
+functions:
+  foo:
+    handler: src/handlers/foo.handler
+    events:
+      - http:
+          method: GET
+          path: /foo

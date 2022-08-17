@@ -15,21 +15,17 @@
     "default": {
       "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ],
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
         "accessToken": "NzhlM2I0YmQtZjIzZi00MjZlLTk1YWYtYTY0OGQ0MTZkOTMwfHJlYWQtd3JpdGU="
       }
     }
   },
   "targetDefaults": {
     "build": {
-      "dependsOn": [
-        "^build"
-      ]
+      "dependsOn": ["^build"]
     }
+  },
+  "cli": {
+    "defaultCollection": "@ns3/nx-serverless"
   }
 }

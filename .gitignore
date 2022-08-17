@@ -40,3 +40,6 @@ Thumbs.db
 
 infra/.terraform
 infra/.terraform.lock.hcl
+# Serverless
+.serverless
+.webpack
