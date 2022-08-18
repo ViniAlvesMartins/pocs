@@ -27,5 +27,22 @@
   },
   "cli": {
     "defaultCollection": "@ns3/nx-serverless"
-  }
+  },
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "style": "less",
+        "linter": "eslint",
+        "babel": true
+      },
+      "component": {
+        "style": "less"
+      },
+      "library": {
+        "style": "less",
+        "linter": "eslint"
+      }
+    }
+  },
+  "defaultProject": "shell"
 }
