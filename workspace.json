@@ -2,6 +2,10 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "functions-clean-architecture": "apps/functions/clean-architecture"
+    "functions-clean-architecture": "apps/functions/clean-architecture",
+    "web-remote": "apps/web/remote",
+    "web-remote-e2e": "apps/web/remote-e2e",
+    "web-shell": "apps/web/shell",
+    "web-shell-e2e": "apps/web/shell-e2e"
   }
 }
